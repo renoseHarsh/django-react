@@ -1,3 +1,4 @@
 # django-react
-Requirements\n
-pip install django djangorestframework
+Requirements:
+- pip install django
+- pip install djangorestframework
