@@ -9,7 +9,7 @@ function HomePage() {
       <Routes>
         <Route path="/join" element={<RoomJoinPage />} />
         <Route path="/create" element={<CreateRoomPage />} />
-        <Route path="/" element={<p>NO not ya</p>} />
+        <Route path="/" element={<h1>NO not ya</h1>} />
       </Routes>
     </Router>
   );
