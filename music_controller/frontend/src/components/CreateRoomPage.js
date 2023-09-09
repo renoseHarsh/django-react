@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -41,9 +42,17 @@ function CreateRoomPage() {
       }),
     };
 
-    await fetch("/api/create-room", requestOptions)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    try {
+      const response = await fetch("/api/create-room", requestOptions);
+      if (response.ok) {
+        const data = await response.json();
+        window.location.href = `/room/${data.code}`;
+      } else {
+        console.error("Error creating room:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
